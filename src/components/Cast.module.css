@@ -1,0 +1,10 @@
+/* /* .imgInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+} */
+
+.img {
+  height: 200px;
+  width: auto;
+}
