@@ -4,6 +4,8 @@ import {Link,Route,Switch } from 'react-router-dom'
 import Cast from "./Cast";
 import Reviews from "./Reviews";
 import Button from '@material-ui/core/Button';
+import Movies from "./Movies";
+
 
 const AboutPage = () => {
     
@@ -66,7 +68,8 @@ const AboutPage = () => {
                 <hr/>
                     <Switch>
                     <Route path='/movies/:filmsId/cast' component={Cast} />
-                    <Route  path='/movies/:filmsId/reviews' component={Reviews} />
+                    <Route path='/movies/:filmsId/reviews' component={Reviews} />
+               
                     </Switch>
 
                 </section>

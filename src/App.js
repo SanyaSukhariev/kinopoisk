@@ -40,7 +40,6 @@ function App() {
           <Switch>
           <Route  exact path='/' component={HomePage} />
             <Route  path='/movies/:filmsId' component={AboutPage} />
-            <Route path='/users' component={UsersPage} />
             <Route   path='/movies' component={Movies} />
             {/* <Redirect exact to={{ pathname: '/'}}/> */}
           </Switch>
