@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 
 
@@ -7,8 +8,11 @@ import { Link } from 'react-router-dom';
 const HomePage = () => {
     
     
+
     const [stateFilms, setStateFilms] = useState([]);
     const url = "https://api.themoviedb.org/3/trending/all/day?api_key=8d4e0a5a0c37d4780eefdf617d0feea1"
+   
+    const axios = require('axios');
 
     // const url = "https://api.github.com/repos/javascript-tutorial/en.javascript.info/commits"
 
@@ -18,11 +22,20 @@ const HomePage = () => {
     //     .then(commits => setState((commits[0].author.login)));
     // },[url])
 
+    // useEffect(() => {
+    //     fetch(url)
+    //         .then(response => response.json())
+    //         .then(commits => setStateFilms(commits.results))
+    // },[])
+
     useEffect(() => {
-        fetch(url)
-            .then(response => response.json())
-            .then(commits => setStateFilms(commits.results))
-    },[])
+        axios.get(url)
+            .then(response => {
+                const commits = response.data
+                setStateFilms(commits.results)
+            })
+    }, [])
+    
 
     return (
         <div>

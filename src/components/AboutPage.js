@@ -5,12 +5,14 @@ import Cast from "./Cast";
 import Reviews from "./Reviews";
 import Button from '@material-ui/core/Button';
 import Movies from "./Movies";
+import axios from "axios";
 
 
 const AboutPage = () => {
     
     const { filmsId } = useParams()
     const  history  = useHistory()
+    const axios = require('axios')
 
     
     const [stateInfoFilms, setStateInfoFilms] = useState({genres:[]})
@@ -19,10 +21,19 @@ const AboutPage = () => {
     
     const imgUrl = "https://image.tmdb.org/t/p/w500" + stateInfoFilms.backdrop_path;
 
-    useEffect(() => {
-        fetch(url)
-            .then(response => response.json())
-            .then(commits => setStateInfoFilms(commits))
+    
+    // useEffect(() => {
+    //     fetch(url)
+    //         .then(response => response.json())
+    //         .then(commits => setStateInfoFilms(commits))
+    // }, [])
+    
+     useEffect(() => {
+        axios.get(url)
+            .then(response => {
+                const commit = response.data
+                setStateInfoFilms(commit)
+            })
     }, [])
     
     const goBackClick=() => {

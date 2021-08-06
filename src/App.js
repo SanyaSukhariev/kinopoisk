@@ -2,7 +2,6 @@ import './App.css';
 import {BrowserRouter,Link,Redirect,Route,Switch } from 'react-router-dom'
 import HomePage from './components/HomePage';
 import AboutPage from './components/AboutPage';
-import UsersPage from './components/UsersPage';
 import Movies from './components/Movies';
 import Button from '@material-ui/core/Button';
 import { AppBar, Box, Container, Toolbar } from '@material-ui/core';
@@ -41,7 +40,7 @@ function App() {
           <Route  exact path='/' component={HomePage} />
             <Route  path='/movies/:filmsId' component={AboutPage} />
             <Route   path='/movies' component={Movies} />
-            {/* <Redirect exact to={{ pathname: '/'}}/> */}
+            <Redirect exact to={{ pathname: '/'}}/>
           </Switch>
           
          </BrowserRouter>
